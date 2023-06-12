@@ -1,0 +1,1262 @@
+\documentclass{ieeeaccess}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+\doi{10.1109/ACCESS.2017.DOI}
+
+\title{The Future of Hackathon Research and Practice}
+\author{\uppercase{Jeanette Falk}\authorrefmark{1},
+\uppercase{Alexander Nolte\authorrefmark{2, 3}, Daniela Huppenkothen\authorrefmark{4}, Marion Weinzierl\authorrefmark{5}, Kiev Gama\authorrefmark{6}, Daniel Spikol\authorrefmark{7}, Erik Tollerud\authorrefmark{8}, Neil Chue Hong\authorrefmark{9}, Ines Knäpper\authorrefmark{10}, AND Linda Bailey Hayden\authorrefmark{11}}}
+
+\address[1]{University of Salzburg, Salzburg, Austria (e-mail: jeanette.falk-olesen@plus.ac.at)}
+\address[2]{Institute of Computer Science, University of Tartu, Tartu, Estonia (e-mail: alexander.nolte@ut.ee)}
+\address[3]{Software and Societal Systems Department, Carnegie Mellon University, Pittsburgh, USA}
+\address[4]{SRON Netherlands Institute for Space Research, Leiden, The Netherlands (e-mail: d.huppenkothen@sron.nl)}
+\address[5]{Advanced Research Computing, Durham University, Durham, United Kingdom (e-mail: marion.weinzierl@durham.ac.uk)}
+\address[6]{Centro de Informática, Federal University of Pernambuco, Recife, Brazil (e-mail: kiev@cin.ufpe.br)}
+\address[7]{Department of Computer Science, University of Copenhagen, Copenhagen, Denmark (e-mail: ds@di.ku.dk)}
+\address[8]{Space Telescope Science Institute, Baltimore, USA (e-mail: etollerud@stsci.edu)}
+\address[9]{Software Sustainability Institute, University of Edinburgh, Edinburgh, Scotland (e-mail: n.chuehong@software.ac.uk)}
+\address[10]{World Economic Forum, Geneva, Switzerland (e-mail: ines.knaepper@weforum.org)}
+\address[11]{Elizabeth City State University, Elizabeth City, USA (e-mail: haydenl@mindspring.com)}
+
+%{Jeanette Falk,$^{1\ast}$ Alexander Nolte,$^{2,3}$ Daniela Huppenkothen,$^{4}$\\ Marion Weinzierl,$^{5}$ Kiev Gama,$^{6}$ Daniel Spikol,$^{7}$ Erik Tollerud,$^{8}$\\ Neil Chue Hong,$^{9}$ Ines Knäpper,$^{10}$ Linda Bailey Hayden$^{11}$ \\
+
+%\normalsize{$^{1}$University of Salzburg, Salzburg, Austria}\\
+%\normalsize{$^{2}$Institute of Computer Science, University of Tartu, Tartu, Estonia}\\
+%\normalsize{$^{3}$Software and Societal Systems Department, Carnegie Mellon University, Pittsburgh, USA}\\
+%\normalsize{$^{4}$SRON Netherlands Institute for Space Research, Leiden, The Netherlands}\\
+%\normalsize{$^{5}$Advanced Research Computing, Durham University, Durham, United Kingdom}\\
+%\normalsize{$^{6}$Centro de Informática, Federal University of Pernambuco, Recife, Brazil}\\
+%\normalsize{$^{7}$Department of Computer Science, University of Copenhagen, Copenhagen, Denmark}\\
+%\normalsize{$^{8}$Space Telescope Science Institute, Baltimore, USA}\\
+%\normalsize{$^{9}$Software Sustainability Institute, University of Edinburgh, Edinburgh, Scotland}\\
+%\normalsize{$^{10}$World Economic Forum, Geneva, Switzerland}\\
+%\normalsize{$^{11}$Elizabeth City State University, Elizabeth City, USA}\\
+
+
+%\tfootnote{This paragraph of the first footnote will contain support 
+%information, including sponsor and financial support acknowledgment. For 
+%example, ``This work was supported in part by the U.S. Department of 
+%Commerce under Grant BS123456.''}
+
+\markboth
+{Author \headeretal: Preparation of Papers for IEEE TRANSACTIONS and JOURNALS}
+{Author \headeretal: Preparation of Papers for IEEE TRANSACTIONS and JOURNALS}
+
+\corresp{Corresponding author: Jeanette Falk (e-mail: jeanette.falk-olesen@plus.ac.at).}
+
+
+\begin{abstract}
+Hackathons are time-bounded collaborative events which have become a global phenomenon adopted by both researchers and practitioners in a plethora of contexts. Hackathon events are generally used to accelerate the development of, for example, scientific results and collaborations, communities, and innovative prototypes addressing urgent challenges. As hackathons have been adopted into many different contexts, the events have also been adapted in numerous ways corresponding to the unique needs and situations of organizers, participants and other stakeholders. While these interdisciplinary adaptions in general affords many advantages --- such as tailoring the format to specific needs --- they also entail certain challenges, specifically: \textit{limited exchange of best practices, limited exchange of research findings, }and\textit{ larger overarching questions that require interdisciplinary collaboration are not discovered and remain unaddressed}. We call for interdisciplinary collaborations to address these challenges. As a first initiative towards this, we performed an interdisciplinary collaborative analysis in the context of a workshop at the Lorentz Center, Leiden in December 2021. In this paper, we present the results of this analysis in terms of six important areas which we envision will contribute to maturing hackathon research and practice:  \textit{hackathons for different purposes, socio-technical event design, scaling up, making hackathons equitable, studying hackathons, }and\textit{ hackathon goals and how to reach them}. We present these areas in terms of the state of the art and research proposals and conclude the paper by suggesting next steps needed for advancing hackathon research and practice.
+\end{abstract}
+
+\begin{keywords}
+Future, hackathon, interdisciplinary collaboration, perspective, state of the art.
+%Enter key words or phrases in alphabetical 
+%order, separated by commas. For a list of suggested keywords, send a blank 
+%e-mail to keywords@ieee.org or visit \underline
+%{http://www.ieee.org/organizations/pubs/ani\_prod/keywrd98.txt}
+\end{keywords}
+
+\titlepgskip=-15pt
+
+\maketitle
+
+
+
+\section{Introduction}
+%1) Please add a brief explanation justifying the manuscript type you have chosen (below). This information will help the Associate Editor and the reviewers during peer review so they evaluate your manuscript with the correct article type in mind.
+%2) Please describe how your article fits the scope of IEEE Access. Note, the scope of IEEE Access covers all (but only) IEEE’s fields of interest.
+%3) Please state the unique contributions and advancements your article makes in the related existing literature.
+
+\label{sec:introduction}
+Time-bounded collaborative events have become a global phenomenon. 
+They are referred to as hackathons, hack weeks, hack-days, data dives, codefests, sprints and others.
+They started as niche competitive events in the early 2000s during which mostly junior developers formed small ad-hoc teams to work on a software project for pizza and sometimes the prospect of a future job. 
+Since then they have moved into a plethora of contexts including science~\cite{huppenkothen2018hack}, industry~\cite{lewis2015ux},  entrepreneurship~\cite{cobham2017appfest}, government institutions~\cite{briscoe2014digital}, non-profit organizations~\cite{trinaistic2020hackathons}, education~\cite{wang2018extended}, civic engagement~\cite{taylor2018everybody}, and libraries~\cite{longmeier2021hackathons}, and involving fields such as design, computer science, arts, health and marketing, to mention a few. 
+The largest hackathon database\footnote{\href{https://devpost.com/hackathons}{https://devpost.com/hackathons}} lists almost 1200 events that took place in 2021 alone with most of them running under the umbrella of Major League Hacking (MLH)~\footnote{\href{https://mlh.io/}{https://mlh.io/}}. 
+Since MLH only registers some hackathons and mainly focuses on North America and Europe it can be expected though that the actual number of annual hackathon events is much larger.
+
+Most hackathon events share commonalities like being collaborative, time-bounded and motivated by an overarching theme, which participants aim to address.
+The adoption of hackathons in different domains has consequently led to the formats evolving in different directions to suit specific needs or foster specific goals ~\cite{falk2021hackathons}.
+Therefore, apart from the above-mentioned commonalities, there is an abundance of different approaches to almost any other aspect of the format including but not limited to: the length and size of events, how participants are recruited, how their collaboration is structured, which support they receive, which tools and materials participants work with and have access to, how these tools and materials are introduced to participants and so on. 
+
+We observe a similar variety and specialization in the context of scientific literature covering hackathons. 
+Research focusing on these events has developed in various disciplines and domains including computer science, high performance computing, astrophysics, and others. 
+Research on such events has also started somewhat late. 
+While the term hackathon first emerged in the early 2000s, the first research papers covering the topic did not emerge until 5 to 10 years later~\cite{falk202010}.
+
+While we acknowledge the advantages of interdisciplinarity when it comes to organizing and studying hackathon events, we also observe that both research and practice around hackathons is quite \textit{siloed}. 
+Different communities organize and study events with little exchange between them which poses significant risks, such as repeating poor or, in worst cases, even harmful practices, leading to sub-optimal experiences and outcomes for not only researchers but also for participants, organizers and connected stakeholders.
+These poor practices include repeating and amplifying not only superficial but even technosolutionist approaches to complex social and societal issues~\cite{falk2021hackathons}, or inadvertently contribute to bad experiences or limited access of participation for minoritized people, wishing to participate~\cite{paganini2020}.
+
+Advancing theory and practice for interdisciplinary researchers who study the same phenomena of hackathons is challenging if awareness of relevant and prior theory is lacking because of siloed research and practice. 
+This can create problems that ``diminish the effectiveness of the research products''~\cite{edmondson2007methodological}, if there is not an appropriate alignment between research question, prior work, research design and contribution to literature ~\cite{edmondson2007methodological}.
+In addition to our practical experiences, our observations of poor methodological fit in terms of siloed research is informed by our experience from reviewing research, similar to ~\cite{edmondson2007methodological}.
+In section \textit{Distribution of research on hackathons}, we confirm this observation quantitatively using bibliometric tools.
+
+We argue that \textit{siloing} and the resulting poor methodological fit of hackathon research and practice inhibits progress in both areas. 
+In particular it results in the following challenges:
+\begin{enumerate}
+    \item \textbf{Limited exchange of best practices} which leads to organizers having to rediscover the same things, repeating mistakes and the format overall drifting into different directions without critical reflection.
+    \item \textbf{Limited exchange of research findings} which leads to repeating studies that discover the same or similar things resulting in a stagnation of research progress.
+    \item \textbf{The biggest research and practice challenges} that require interdisciplinary collaboration are not discovered and \textbf{remain unaddressed}.
+\end{enumerate}
+
+To address these three challenges, we organized a workshop at the Lorentz Center\footnote{\href{https://bit.ly/3gtv4Gl}{https://bit.ly/3gtv4Gl}}. 
+We brought together hackathon researchers and practitioners from various disciplines including software engineering, high-performance computing, information systems, astronomy, geology, physics and organizational sciences. 
+
+This paper presents the result of a multidisciplinary analysis of hackathon research and practice during that workshop. 
+First, we start the article by outlining recent work that provides overviews and reviews of hackathon research and practice.
+We use these as a point of departure for continuing the improvement of understanding hackathons and as motivation for our focus on an interdisciplinary perspective on unified problem formulations, sharing of methods and creation of new research questions~\cite{miller2008epistemological,eigenbrode2007employing}. 
+Second, to support our observation of how hackathon research seems to be siloed, we provide a network analysis of the distribution of hackathon research.
+Third, since research on hackathon is tightly connected to the practical sphere of hackathon organization, we discuss some logistics and facilitation of hackathon organization based on our experience of hackathon practice.
+This section is particularly suited to readers who wish to organize hackathons. 
+Fourth, we envision directions for future hackathon research and practice structured into six areas:
+(1) Hackathons for different purposes, 
+(2) Socio-technical event design, 
+(3) Scaling up, 
+(4) Making hackathons equitable, 
+(5) Studying hackathons, and
+(6) Hackathon goals and how to reach them.
+
+The purpose of this paper is, first, to support researchers in the pursuit of future research endeavors. 
+Second, we aim to help practitioners to identify areas in the organization of hackathons to explore and further develop the format, and to improve participation (diversity and inclusion of participants, mentoring, support, etc.).
+
+\section{Background}
+\label{sec:background}
+Some notable examples on publications have recently synthesized insights on hackathon research and practice, including literature reviews and case studies:
+For example, Flus and Horst~\cite{flus2021design} conduct a literature review focusing on characterizing the design activity at hackathons and discussing future design research on hackathons.
+Falk Olesen and Halskov's~\cite{falk202010} literature review uses the Association for Computing Machinery (ACM) Digital Library (DL) to study the relationship between research and hackathons and provide an overview of challenges and opportunities within this relationship.
+Kollwitz and Dinter~\cite{kollwitz2019hack} systematically review 189 research publications with a focus on the Information System research domain at ``the crossroads of digital innovation and OI (open innovation)''~\cite{kollwitz2019hack} and on this basis develop a taxonomy of hackathon dimensions.
+
+Overviews of hackathon practice include Rys'~\cite{rys2021invention} evaluation of 14 hackathons as an invention development method compared to brainstorming, where they explore how hackathons may mitigate some of the drawbacks of brainstorming. 
+Pe-Than et al.~\cite{pe2019designing} review ten hackathons and research literature to discuss design choices which hackathon organizers should consider. 
+Nolte et al.~\cite{nolte2020organize} extend this work and develop an online kit to support hackathon organization.
+
+These papers are notable contributions to the development of an ontology of hackathons and to uncovering best practices for organization.
+While they are important in developing an understanding of hackathons and how they can be organized in different contexts, the studies have generally been conducted \textit{within} disciplines. 
+In this paper, we offer an interdisciplinary perspective on the phenomenon of hackathons as well as move towards outlining paths for formulating unified problems across disciplines, sharing of methods, and developing new research questions~\cite{miller2008epistemological,eigenbrode2007employing}.
+
+\subsection{Defining Hackathons}
+To place hackathons into an interdisciplinary context first requires a framework for what constitutes a hackathon.
+As we established earlier in this paper and explain in more depth in the next section, hackathons are conducted in many different contexts and fields and with different purposes.
+This suggest that finding a unified, interdisciplinary definition may be a complex problem.
+
+Our aim is to propose a framing that is inclusive rather than exclusive. 
+It should include any event that can conceivably be perceived as a hackathon. 
+At the same time it should not be so broad that it could include any event where people come together such as concerts, conventions, workshops or similar. 
+The traits we describe in the definition below are common traits for many if not most relevant hackathon events, but might be different for specific hackathons that are designed for a specific purpose.
+
+We \textbf{define hackathons} as time-bounded participant-driven events that are organized to foster specific goals or objectives. 
+The scaffolding of each event is planned by a team of organizers to support its goals or objectives. 
+People that participate in an event often (but not necessarily) have different backgrounds and bring different expertise. 
+Their primary motivation to join an event is to work on a shared team project that interests them, although there might be additional incentives such as prizes and networking opportunities. 
+During the event, teams attempt to create an artifact (e.g. software or hardware prototypes, slides, video, document) that can be shared with other participants. 
+It is also acceptable, and sometimes even desirable, if they do not manage to create anything. 
+Participants are encouraged to be bold and work on things outside of their area of expertise.
+
+In the next subsection, we outline some fields of study which hackathon research and practice connect to.
+
+\subsection{Hackathons in context}
+Hackathons at their core are collaborative events. 
+Collaboration in these events takes place mainly in small teams that work independently~\cite{trainer2016hackathon}. 
+There is much work in different domains that focuses on how (small) teams communicate and collaborate, including psychology, education, organizational sciences, volunteer engagement, entrepreneurship and others. 
+This work is deeply relevant to the study of hackathons since we expect teams to face similar challenges related to communication, organization, leadership, equity and others. 
+However, two major defining factors in hackathons are their time-bounded nature, and the feature that team members might meet each other at the event for the first time. 
+As a result, teams have to establish how they collaborate in a short period of time --- related to what Edmondson has coined ``teaming''~\cite{edmondson2012teaming} --- which has been described as a key characteristic of hackathon participation~\cite{falk2022supporting}.
+
+Collaboration in teams during a hackathon revolves around a project chosen by teams themselves~\cite{pe2019understanding}. 
+These projects often focus on the creation of a (technical) artifact, like a web site, mobile application, robot or a piece of software. 
+Our understanding of how teams engage with this task can be informed by work related to project management, agile software engineering, design and others. 
+Differences between those works and hackathons relate e.g. to the way that teams approach their projects. 
+In hackathons team members often choose tasks within their projects that they are interested in rather than tasks that correspond to their individual skill-set~\cite{nolte2018you} -- often they might even choose a task they have no prior knowledge in, as they use the hackathon as a learning opportunity. 
+Teams also often approach projects without any or limited prior planning and engage in a form of rapid prototyping.
+
+While teams mainly work in an independent and self-directed manner, their collaboration still takes place in the context of a specific event. 
+The planning of the overall event consequently influences teams in particular in the context of team formation and project ideation~\cite{olesen2018four}. 
+Organizers often deploy means of facilitation to keep teams on track~\cite{taylor2018everybody}. 
+Related works on other collaborative settings such as game jams, workshops, classrooms and teamwork may support our understanding of how teams engage in such environments. 
+A key difference between hackathons and other events is a much looser scaffolding where fewer rules are enforced.
+
+\section{Distribution of research on hackathons}
+\label{Distribution}
+We analyzed research outputs around hackathons to get an overview of which research disciplines are involved and how authors collaborate, to illustrate the siloed effect we discussed in the introduction. 
+For this purpose we used bibliometric tools, which can be used to analyze the impact of a research area~\cite{jefferson2017comment}. 
+We used the Lens Scholarly Analysis tool~\cite{RN310}, which uses global public resources like PubMed, MAG, and Crossref for science and innovation assessment. 
+Using the search (title:(Hackathon*) OR abstract:(Hackathon*) OR keyword:(Hackathon*) OR field-of-study:(Hackathon*)) yielded 1,794 scholarly works and 651 scholarly works cited by other literary works\footnote{We performed the search on July 7, 2022. The full dataset is available here: \href{https://bit.ly/3nH6C7T}{https://bit.ly/3nH6C7T}}.
+While this gives a good overall trend of rise of hackathon numbers, it doesn't measure e.g. papers studying adjacent collaborative events and may misrepresent some papers looking at hackathons by different names such as coding sprints.
+
+Our findings indicate that interest in hackathons has steadily risen over the past ten years. 
+Fig. 1 %~\ref{fig:journals} 
+particularly shows a continuing rise of journal articles and conference proceedings. 
+It also shows that non-peer-reviewed articles have started a few years earlier compared to journal articles and conference proceedings and been the most common form of publication until 2020.
+Since then, they have started to decline while other forms of publication continue to grow providing indication for the field maturing. 
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{over_time.png}
+\caption{Publications over time from 2010-2021}
+\label{fig:journals}
+\vspace{-10pt}
+\end{figure*}
+
+To show the diversity of fields that organize and study hackathons we constructed a word cloud (Fig. 2) %~\ref{fig:wordcloud}) 
+based on a service provided by Microsoft Academic that uses machine learning parsing of all accessible text in the record (title, abstract, and keywords). 
+It illustrates that computer science is mentioned most (482 articles) followed by public relations (208). 
+We also analyzed the citation metrics for the papers in our corpus and found that the most highly cited paper is in computer science (155 citations). 
+The second and third most cited papers are a paper around informal learning (113 citations) and a paper that focuses on intense collocation and collaboration (89 citations). 
+The next field of study is public relations and the three most cited papers in public relations are related to civic hackathons (170 citations) and entrepreneurial citizenship (162 citations). 
+While in computer science, the most cited paper is from computational linguistics and mental health (162 citations) and the second paper is hackathons on informal learning (117 citations).
+
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{wordcloud.png}
+\caption{Word-cloud of fields of study}
+\label{fig:wordcloud}
+\vspace{-10pt}
+\end{figure}
+
+Finally, we also conducted a co-authorship analysis. 
+For this we used VOSview~\cite{van2010software} with a RIS export from the Lens Scholarly Analysis with a minimum number of documents of an author set to 2 with fractional counting (weighted), which set a threshold from the 2839 authors to 470 that meet the threshold. 
+We visualized these 470 co-authors in Fig. 3.
+%~\ref{fig:authors}. 
+This illustrates clearly how siloed the research in this area is -- while there are some connections between the clusters, the clustering is far more prominent than the inter-cluster connections.
+
+\begin{figure*}
+\centering
+\includegraphics[width=\linewidth]{coauthor.png}
+\caption{Author map of contributors to hackathon research as defined in the text. This clearly shows how siloed this research area is, as the clusters are not well-connected.}
+\label{fig:authors}
+\vspace{-10pt}
+\end{figure*}
+
+\section{Hackathon organization}
+\label{hackathonOrganization}
+As described in the previous section, hackathons started as hands-on collaborative events, and it took a while for research to take in interest in them. 
+Therefore, our foundation for the paper is not only informed by the emerging research on hackathons, but also to a great extent by the practice of hackathon organization and participation.
+This section establish the foundations which we are starting from, by summarizing key aspects of logistics and facilitation of organizing hackathons. 
+Most of these aspects are experience-based and anecdotal, rather than based on studies. 
+The next section will touch on some of this, and point out where formal studies might be beneficial and lead to insights that can improve hackathon organization.
+
+A key element of hackathons is getting people out of their ``day job'', so the event format must be different from what they are used to in their day-to-day work. 
+This is often achieved by creating a relatively informal atmosphere, allowing for spontaneity and bringing in of unexpected ideas. 
+Thus, the organizers and participants need to be prepared to constantly adjust their plans to what is happening at the event. 
+The community-developed online resource called the ``Hackathon Planning Kit\footnote{\href{https://hackathon-planning-kit.org/}{https://hackathon-planning-kit.org/}}''~\cite{nolte2020organize} is useful to get started with organizing a hackathon and to make sure that no important aspect is forgotten. 
+
+Hackathons are inherently experimental. 
+The participants are allowed and encouraged to experiment and fail, rather than following a set step-by-step tutorial to fulfill a given task. 
+In the same way, hackathon organizers should allow themselves to experiment and to try out new things.
+
+\subsection{Logistics of Hackathon Settings}
+Due to the agile nature of hackathons, flexible spaces are required which can be adjusted to the needs of participants. 
+For in-person events, adjustable rooms, movable tables and chairs, lots of boards and screens, enough power plugs and extension cables, wifi, and plenty of space, based on the number of participants, are required. 
+An example on flexible spaces is the UW Active Learning Classroom~\cite{UW}, while setups like traditional lecture theatres should be avoided.
+For online hackathons, the flexibility needs to be reflected in the range of tools used, for example Zoom for plenary events, Zoom breakout rooms for the hackathon work, and a persistent chat tool with configurable channels, such as Slack or Discord, for asynchronous communication. 
+A central notice board or shared documents with links and all necessary information to know where you have to be and where things are, who is in which group, etc., can be very helpful to avoid people getting lost in this multitude of material and spaces. 
+In order to keep teams together and make sure people do not forget to look after themselves, breaks should be scheduled centrally, and at in-person events food should be provided in-house. 
+This is also a chance to provide networking opportunities. 
+Participants can also be brought together for tutorials or talks, teaching technologies and methods relevant to the hackathon, or providing insight into an overarching theme.
+
+To make sure that, in spite or because of all the flexibility, the organizers do not get carried away and lose touch with the participants, hackathons are often evaluated in-depth.
+For example, some hackathons have physical or virtual feed back walls during the entire event in addition to post-event surveys. 
+While it is not possible to use this evaluation to do "everything right next time", it is an important tool for reflecting on what worked and what didn't, and to make more informed decisions for future events.
+    
+\subsection{Facilitation of Hackathon Participation}
+Hackathons generally have less of a strict schedule, are spontaneous, and therefore also require an increased flexibility from organizers and the ability to adjust and adapt quickly. 
+However, designing facilitation plans for use throughout the event lowers the mental load on organizers during the hackathon itself.
+This is not to say that there is necessarily only a low upfront effort before the event: organizers who e.g. emphasize inclusivity in their hackathons may also spend considerable time and energy into planning appropriate physical and digital spaces as well as processes.  
+For example, considering the latter, some hackathons implement active participant selection processes in order to create a cohort diverse in background and experience, which in turn requires the design and implementation of selection processes.
+One online resource which may assist hackathon organizers in participant selection processes is \textit{entrofy}~\cite{huppenkothen2020entrofy}, which is specifically developed to help with selecting a diverse cohort from a set of candidates. 
+
+While the difference between format and participants' ``day job'' can help them engage in the event, it is also this difference that makes increased facilitation necessary. 
+In general, how much advanced planning and organization is needed from participants is variable depending on the hackathon purpose, the communities included in the hackathon's participants, the amount of knowledge or field-specific language shared by participants. 
+For example, a hackathon designed around a single purpose with one stakeholder providing the problem description and data may require less upfront effort from participants than a more open-ended design where participants can pitch their own projects.
+However, such single-stakeholder approaches may also limit the creativity of the participants and may therefore reduce the value of it to some of the participants.
+
+Designing a short, time-bounded project with a measurable outcome, forming a team and implementing teamwork structures on the extremely compressed timeline of a hackathon is often not something that all participants have much experience with. 
+Before the event, facilitation typically includes guidance for the participants' preparation for the event: preparing project pitches, acquiring and cleaning any relevant data sets, identifying crucial project tasks and team member roles. 
+Similarly, throughout the event, significant effort is spent on forming and facilitating project teams. 
+This in particular includes mechanisms for team formation as well as for participants to change teams and for that change to happen gracefully. 
+For many hackathons, where networking and learning are core goals, framing team formation and team work is crucial to create a positive learning environment. 
+Especially in larger groups, it is easy for participants to get ``lost''. 
+In response, organizers are often present in the space, listening in on teams and help where needed, along with scheduled check-in procedures. 
+
+\section{Envisioning the future of hackathon research and practice}
+\label{Vision}
+In the following sections we discuss what we perceive to be some of the most important areas of hackathon research and practice.
+The six areas are: (1) Hackathons for different purposes, 
+(2) Socio-technical event design, 
+(3) Scaling up, 
+(4) Making hackathons equitable, 
+(5) Studying hackathons, and 
+(6) Hackathon goals and how to reach them.
+While the listed six areas represent a synthesis of our discussions at the workshop, it is not an exhaustive list. 
+Instead, we introduce the areas as an invitation to start tackling the issues we have observed in hackathon research and practice, i.e. limited exchange of best practices, limited exchange of research findings and unaddressed big, interdisciplinary challenges.
+
+\subsection{Hackathons for different purposes}
+\label{sec:vision:purposes}
+A good starting point for framing hackathons for different purposes is Briscoe and Mulligan's~\cite{briscoe2014digital} definition that loosely groups hackathons as tech-centric or focus-centric. 
+Tech-centric hackathon events focus on developing software and hardware using a specific technology (e.g., a hackathon aiming to promote the usage of an API and a new one). 
+Focus-centric hackathons involve creating prototypes to address a specific social issue or business objective, for instance, improving city transit systems. 
+Briscoe and Mulligan's classification may be further expanded into including three categories of hackathons: corporate, educational, and civic hackathons ~\cite{gama2022}.
+In addition to these categories, we may also consider research-focused hackathons, see e.g.~\cite{falk202010}.
+We use this categorization as point of departure for discussing the state of the art in the next subsection.
+
+\subsubsection{State of the art}
+\textbf{Corporate hackathons} aim at broadening innovation, with participants typically motivated by learning and networking. 
+They have commonly been used by IT and technology companies of all sizes, which integrate these events into their research and development activities. 
+These hackathons aim to generate new ideas, early prototypes, and even business plans and can be internal or external to the organisation ~\cite{pe2022corporate, flores2018can}. 
+Corporate hackathons can be either internal or external to an organisation. 
+\textbf{Internal hackathons} are designed to stimulate creative thinking for the organisation and generate new ideas. 
+\textbf{External hackathons} are open to participants outside the organisation and are motivated by the open-innovation paradigm by introducing new resources in crafting unique solutions. 
+Both internal and external hackathons can alternate between a tech-centric or focus-centric approach or combine the two.  
+These mixed events represent a strategy to support ecosystem evolution by offering a software platform and hardware for third parties to develop new products or services and encouraging outsiders to become network complementors. 
+Additionally, hackathons are a way to attract and build a community of experts~\cite{granados2019collaborative}, which help to foster a broader innovation ecosystem. 
+
+\textbf{Educational hackathons} are performed in association with teaching and learning activities, either as an initiative of a teacher or as cooperation between academia and industry -- which is sponsoring the event~\cite{nandi2016, gama2018hackathons, porras2018hackathons}. 
+These hackathons are often tech-centric and can bring focus-centric approaches as well:
+In IT or Design courses, for instance, the hackathons become a contest for graduating students to address real-life issues in an engaging scenario that enables them to collaborate and enhance their abilities intensively~\cite{porras2018hackathons}.
+
+\textbf{Civic hackathons} address public and societal issues organized by the public sector or non-governmental organizations. 
+These hackathons focus on more socially-oriented innovation~\cite{briscoe2014digital,disalvo2014building}. 
+These events are typically focus-centric hackathons, although government institutions also have been using such events to generate value from open data and APIs (a more tech-centric perspective), which different players explore (e.g., citizens, different types of companies, universities, etc.). 
+These contests generally leverage the idea of government as a platform~\cite{safarov2017}.
+
+\textbf{Research-focused hackathons} are hackathons used as a kind of research method.
+In line with academia embracing research on hackathons (see section \textit{Studying hackathons} below), researchers have also organized hackathons for various research purposes, see e.g.~\cite{pe2019understanding,ghouila2018hackathons,groen2015science,falk202010}.
+To mention a few examples, these purposes could be for producing and studying specific hackathon outcomes, increasing collaboration between stakeholders, and evaluating prototypes~\cite{falk202010}. 
+Common for many publications using hackathons as research methods is the emphasis on how hackathons enhance and accelerate scientific collaboration, see e.g.~\cite{ghouila2018hackathons}.
+
+\subsubsection{Research proposal}
+While hackathons are evolving events, classifications can play a valuable role in analyzing these events. 
+However,  understanding the different motivations and the "why" for event organizers and participants remains an open question as current evaluations and research are primarily tied to the specific type of events and their particular goals. 
+Only few studies combine the different types and aims~\cite{flus2021design,briscoe2014digital}, and primarily from a design perspective. 
+Generally, organizers from the different categories of hackathons, highlighted above, often mention \textit{collaboration} as a main benefit of hackathons.
+Exploring this aspect from a macro perspective across different types of hackathons and focusing on motivations, expectations, and stakeholders can help us understand and organize better events. 
+Furthermore, it will provide insights into how collaboration unfolds across research, industry, and education.  
+
+\subsection{Socio-technical event design}
+Technology is a key component of hackathons, which are often tech-focused as they revolve around \textit{creating} technology~\cite{briscoe2014digital}. 
+Of equal importance are the technologies that organizers, mentors, participants and other stakeholders use to organize and participate in an event. 
+Which technologies to use for which purpose(s) during an event is a key decision that organizers and participants need to take~\cite{nolte2020organize}. 
+The importance of this decision is exacerbated by the rise of online and hybrid formats for which technology forms the foundation of organization and participation, and interactions might be facilitated entirely through technological means for virtual participants~\cite{mendes2022socio}. 
+Online and hybrid events require reliable platforms for simultaneous and asynchronous interaction such as video calls and text-based chat features, virtual versions of whiteboards and note-taking facilities, and virtual spaces designed for unstructured interactions such as coffee breaks and networking events. 
+
+Even in in-person events, technology often plays a vital role: it is used to e.g.~publicize events, support registration, foster the development and sharing of ideas ahead of and during the hackathon, support team formation, serve as a means to communicate and / or collaborate on artifacts, and submit projects. 
+There are different platforms such as Devpost\footnote{\href{https://devpost.com/}{https://devpost.com/}}, Hackbox\footnote{\href{https://formidable.com/work/hackbox/}{https://formidable.com/work/hackbox/}} or Eventornado\footnote{\href{https://eventornado.com/}{https://eventornado.com/}} that offer some of those functionalities. 
+While different event formats and sizes afford the use of different technologies it is clear that choices regarding technology use will affect the experience of everyone involved in organizing and participating in an event.
+
+Online hackathons have especially seen a steep rise during the global COVID-19 pandemic~\cite{bertello2022open,temiz2020open}. 
+They pose unique challenges but also provide new opportunities such as limiting the carbon footprint of travel~\cite{burtscher2020} and providing the possibility for individuals who cannot travel due to visa, funding or other issues. 
+It can thus be expected that even as in-person events become more prevalent again, online events or online components of in-person events will remain, and with them, the requirement for reliable, accessible technological solutions that facilitate hackathon organization and participation.
+
+\subsubsection{State of the art}
+There is a large variety of technologies that have been proposed for use to prepare for and run hackathons like the ones mentioned before. 
+Organizers often utilize a variety of technologies for different purposes. 
+There are tools that are commonly used to facilitate live (Zoom, Teams, etc.)~\cite{braune2021interdisciplinary} and asynchronous interaction (Slack, Discord, etc.)~\cite{bertello2022open,fowler2020jamming} as well as sharing artifacts (Github, GDrive, etc.)~\cite{mcintosh2021hackathon,mahmoud2022one}. 
+In addition, organizers often utilize websites to share the agenda or structure of an event. 
+Most of our current knowledge about the use of technology in hackathons stems from studying in-person events~\cite{falk202010,taylor2018everybody,trainer2016hackathon}. 
+What this work has established so far, is that the technologies that are used and the way they are used can affect the experience of participants during an event, especially in an online context. 
+However, there is also a difference between technologies that organizers propose and technologies that participants end up utilizing. 
+This discrepancy is driven by participants' preferences and the strength of those preferences (i.e.~technologies that a participant ``likes'' vs.~a technology that other participants ``do not mind'' using). 
+Even when the same technology is being used, teams differ in the extent and the purposes for which they use a specific technology~\cite{mendes2022socio}.
+
+Studies on the use of technology in hackathons are often limited to post-event reports of individuals that collaborated during a single or few events~\cite{bertello2022open,mendes2022socio}. 
+Larger scale studies of how teams utilize technology to communicate and collaborate using e.g. trace data from communication tools are missing (one notable recent exception is~\cite{schultenparticipants}). 
+It is thus unclear if the reported findings can be expected to hold across different events and event designs.
+However, virtual hackathons are a relatively recent developments, thus studies on online events are just emerging~\cite{bertello2022open,mendes2022socio,happonen2021systematic} and reports on hybrid hackathons are largely non-existent at this point.
+
+\subsubsection{Research proposal}
+From the current trend towards online and hybrid hackathons, and the current state of research in this area, we propose a number of open questions that future research should address. 
+In particular, it is important to know to what extent hackathon organizers can and should prescribe the technology that participants use during an event. 
+Participants may be able to spot accessibility issues with platforms that organizers do not, but increased flexibility may also lead to additional confusion and fatigue in virtual participation. 
+Secondly, it is currently not clear which technologies are particularly suited for the affordances of the hackathon format. 
+Most technological tools are designed for commercial applications with a narrower focus than the wide variety of modes and purposes of communication commonly occurring at hackathons, and there may be no single solution that can provide all the necessary functionality. 
+Finally, it is an open question how technology can be used to better support organizers of online and hybrid events, where operating the technological solutions can add significant overhead to organization and where it is currently difficult to identify technological issues and address them.
+
+\subsection{Scaling up}
+Given the time, effort and costs involved with hackathon preparations, it is only natural that the organizers want to maximize the impact by scaling it up in time (longer events) and/or size (more participants). 
+The standard hackathon format is often short, usually 24 or 48 hours, and the number of participants for most events might vary between 20 and 100. 
+According to Kollwitz and Dinter~\cite{kollwitz2019hack}, a short hackathon is defined as lasting less than 24h, medium as 24-72h, and long as >72h. 
+The hackathon portal Devpost lists that out of 6149 hackathons on that page, 72 had more than 1000 participants, 197 had between 500 and 1000, 1787 between 100 and 500, 1290 between 50 and 500, and 2803 had less than 50 participants. 
+
+Looking at the time dimension, there can be additional reasons for having longer hackathons. 
+For example, long-term goals or larger projects require more time to be achieved and thus lend themselves to hack weeks or similar events, and for more complex or ill-defined projects time for scoping and requirements analysis needs to be factored in. 
+Other hackathon projects might require asynchronous upfront work or work in between hackathon days, lending themselves to short but repeating events on the same topic. 
+Some hackathons bring together communities with very different customs, language and background knowledge, where significant time must be devoted during the hackathon to community building. 
+The team formation process in hackathons adds significant overhead in terms of building a shared language among the participants, and in terms of organizing the team structure. 
+From an equity and inclusion perspective, it can be beneficial to organize a hackathon over multiple working days rather than a continuous 24- or 48-hour event, as participation outside of business hours and long, sustained participation can be tricky for people e.g. with caring responsibilities. 
+In certain contexts, such as hackathons addressing social innovation, a wider time span may be needed, since methodologies from social sciences need more time to gain a better understanding of social contexts~\cite{ferrario2014software}.
+
+\subsubsection{State of the Art}
+When a hackathon is scaled up in the size dimension, more people usually means more teams, rather than bigger teams. This can lead to less collaboration and exchange between teams, if the organizers do not put explicit effort into facilitating this exchange. Overall facilitation of the event becomes more difficult and time-consuming for organizers. However, some communities have experimented successfully with distributed events over both a small range of time zones, as well as hackathons comprising regional pods embedded in a global organization~\cite{cameron2016brainhack}. Especially for virtual hackathons, this might provide a fruitful avenue to addressing issues around time zones.  During social distancing times in the pandemic, many hackathons aiming to crowdsource the generation of solutions to problems around COVID-19 took advantage of the online format, involving hundreds (and sometimes thousands) of participants in the same virtual event~\cite{vermicelli2020can,braune2021interdisciplinary}.
+
+When scaling up in duration, organizers have to consider whether they want to run a single event spanning multiple, consecutive days, or rather a series of smaller events over a longer period of time. 
+A single event of consecutive days might lend itself to hackathons designed for community building, sparking innovation and networking (e.g.~\cite{huppenkothen2018hack}). Examples include hackathons as a team building activity, a student event during term breaks, or to significantly advance a software project. Conversely, problems that require sustained effort within the same teams over months or years might find a regular schedule of short hack days beneficial, taking advantage of the opportunity for asynchronous work in between to prepare these hack days and drive their projects forward. Creativity research shows~\cite{boden2004creative} that this kind of distribution also gives the participants time to ``mull over'' their ideas and might lead to more creative outcomes.
+
+As an example, in Basden et al.~\cite{basden2021performancews}, the organizers describe a hackathon which was run over seven months, with one hack day per month and asynchronous work done between the hack days. At each hack day, a new performance analysis tool was introduced that the participants, which came in existing teams, applied to their research codes. The time between hackdays was used by the teams to continue their work, asynchronously discuss problems with the tool experts, as well as for setup tasks for the next session. The feedback for this format was positive, and some teams achieved significant insights and speedups for their codes. 
+
+Recent years have shown the advantages and disadvantages of online~\cite{mendes2022socio} and hybrid hackathons. It is still an open question whether and in which situations they provide a benefit for scaling up. While it is relatively easy to accommodate more people in an online environment in terms of logistics, as space considerations do not play a significant role, more care has to be taken to facilitate interactions between teams, and more mentors, organizers and instructors might be needed. Hackathon organizers need to be careful not to underestimate this shift in effort for scaling up online.
+
+\subsubsection{Research proposal}
+There is, to our knowledge, no rigorous research done yet on the effects and limitations of scaling up in terms of time and in terms of number of people, and how this differs of offline vs online events. 
+We therefore suggest significant research effort be dedicated to examining the tradeoffs inherent in these choices.
+As discussed by Falk and colleagues, shortening or lengthening the hackathon events may configure the ways in which people participate in them~\cite{falk2022shortening}.
+Longer or shorter duration of hackathons may change how \textit{pace} during designing and prototyping is perceived by participants, and thereby ``influence which strategies participants pursue''~\cite{falk2022shortening} citing~\cite{grzymala2011time}.
+As argued in the section above, we may ask how scaling up hackathons by organizing e.g. a series of regular schedule of short hack days may influence how participants perceive the pace of designing and prototyping?
+
+Another interesting question to look at is scaling down: Are hackathons with teams of two persons beneficial?
+Which aspects of hackathons can be retained in small-scale hackathons? 
+Which effects, benefits and challenges may very short hackathons of one or two hours entail e.g. in terms of participation, accessibility, creativity and outcome?
+For example, shorter schedules have been proposed as a way to to ensure broader participation of older adults~\cite{kopec2018older}.
+
+\subsection{Making Hackathons Equitable}
+As events that thrive on social interactions, hackathons tend to reproduce the power structures and discrimination of the society they are embedded in, unless carefully facilitated. 
+Hackathons are perceived as typically non-inclusive events~\cite{kos2018collegiate}, and are, for example, frequented little by female participants ~\cite{decker2015understanding} where they are often subjected to different forms of discrimination~\cite{paganini2020}. 
+Hackathons that explicitly welcome transgender, non-binary and gender non-conforming people are rare and represent a very small fraction of these events~\cite{kumar2019}. 
+A lack of inclusion at these events means that underrepresented groups (e.g. women, LGBTQIA+) might receive fewer opportunities (e.g. learning, skill development, networking, jobs) characteristic of hackathons~\cite{warner2017}. 
+A hackathon therefore cannot be considered a successful event unless it ensures equitable participation for all participants. 
+
+Hackathons have also often been criticized for their tendency towards technological solutionism, and thus any hackathon where the outcomes will affect human lives--and especially those of traditionally minoritized groups--must ensure that stakeholders can engage with the planning and the hackathon itself~\cite{d2016towards}. 
+However, representation is only the first step, and responsibility rests with the organizers to design a hackathon where participants from historically underrepresented groups are welcome.
+
+\subsubsection{State of the art}
+Equitable participation includes both logistic aspects (e.g. wheelchair access, gender-neutral bathrooms, food that respects dietary restrictions, quiet rooms) as well as aspects of facilitation (e.g. a code of conduct, facilitation structures that mitigate power dynamics in teamwork). 
+
+Before the event, gender-neutral communication and advertisement to specific audiences are important to attract underrepresented groups~\cite{ferraz2019case}, while during the event nuances such as allowing participants to specify their preferred pronouns in identification badges can improve the sense of belonging~\cite{prado2021trans}. 
+A core goal is to instill a sense in participants that they are welcome, that their experiences and skills are valued, and that they belong at the hackathon.
+
+The logistic aspects of hackathon participation often directly depend on the chosen venue, and thus organizers should carefully evaluate whether a venue provides equitable access. 
+This includes building-related features, such as wheelchair accessibility or --- in the case of age-inclusive hackathons for older participants --- simple room layouts on the first ground floor~\cite{kopec2018older}.
+It also includes much broader questions around for example visa restrictions on traveling to the country where the hackathon is held, local laws, and disparities in travel funding among institutions and countries for participants. 
+For a series of workshops like some hack weeks, shifting the country and venue where the workshop is located has facilitated a broader access, in combination with dedicated fundraising activities to enable travel for those participants who would otherwise not be able to attend. 
+Recently, the emergence of fully virtual hackathons has provided opportunities to address logistic issues of equitable access around the space the hackathon is held in and travel funding, but has raised others (e.g. access to electricity and the necessary technology for participation, censoring of key technologies in some countries, time zones). 
+
+As a safeguarding measure, introducing Codes of Conduct can be one way of making hackathons more equitable.
+They should clearly state what constitutes unacceptable types of conduct at the event and clearly delineating (and carrying out) enforcement procedures have emerged as a key element of setting a baseline for enabling equitable participation free of discrimination and harassment~\cite{prado2021trans}. 
+However, Codes of Conduct (e.g., hack code of conduct~\footnote{\href{https://hackcodeofconduct.org/}{https://hackcodeofconduct.org/}}) can only provide a baseline, and, as is the case in other team work environments, by necessity leave a large grey area of behaviour that does not strictly rise to the level of a violation, but will nevertheless make the event unwelcoming for some participants (e.g. repeatedly talking over a team member, in-group jokes, extreme competitiveness, exclusion of team members based on disparities in technical skills). 
+
+Proactive strategies for mitigation then hinge on organizers to set the tone of the event and lead by example. 
+In an analysis of 16 hackathons described in research literature, Falk et al.~\cite{falk2021hackathons} identified nine hackathons which were specifically tailored towards broadening participation.
+As they discuss ``By modifying the processes and desired end goal of hackathons, researchers [and hackathon organizers] have the opportunity to include those who have been historically marginalized when considering the design of technology mediated futures''~\cite{falk2021hackathons}. 
+Related to this, it has been discussed how hackathons~\cite{falk2022shortening} can be a way of facilitating participation in design processes with low investment in order to include vulnerable people ~\cite{kanstrup2018participatory}.
+
+Hackathons often involves a sexist competitive environment not very welcoming to underrepresented groups~\cite{warner2017}.  
+Fostering a competitive or collaborative ambiance is a design choice made by organizers~\cite{pe2019designing}. 
+The traditional competitive hackathon format is common with incentives such as awards being offered. 
+A cooperative event can be achieved when social elements are introduced -- e.g., stimulating participants to pitch project ideas or to wander around the premises and discuss with other teams -- thus helping participants from different teams to collaborate and network~\cite{pe2022corporate}. 
+This supports how students, who belong to traditionally marginalized groups in computer science, tend to participate in hackathons, by embracing collaboration and non-competitive goals~\cite{kos2019understanding}.  
+For the inclusion of older hackathon participants, different collaboration strategies should also be considered, such as consulting or validation~\cite{kopec2018older}.
+Prado et al.~\cite{prado2021trans} interviewed transgender and gender non-conforming hackathon participants to draw a set of recommendations for more trans-inclusive hackathons: start with a gender-inclusive organizing team; foster inclusive communication; make safety visible; and showcase trans people in the event.
+Other recommendations for making events more equitable are: focus more on collaboration and less on competition; stimulate development of technical and transferable skills; promote healthier habits; define an inclusive code of conduct; and include women in the organization team~\cite{paganini2021promoting}.
+
+Successful facilitation also rests on team mentors and leads to be ready to facilitate their teams in a way that respects every team member (see also the vision of a feminist hackathon in~\cite{disalvo2014building}). 
+This can involve the explicit embrace of failure as part of the hackathon, articulating the recognition that many hacks fail, and how participant may not feel competent enough.
+In some events, this has also included the co-creation of a value statement for the hackathon with participants to generate buy-in.
+In addition to tailoring hackathons towards broadening participation, there are also examples on hackathons in which the topic of equity is deeply embedded into the theme of the hackathon itself, inviting participants to develop ideas and prototypes that engages with the concept of \textit{Safe Spaces}\footnote{\href{https://www.unwomenuk.org/safespacesnow-hackathon}{https://www.unwomenuk.org/safespacesnow-hackathon}}; i.e. a place where people can feel confident that they will not be exposed to discrimination, criticism, harassment, or any other emotional or physical harm.
+
+No hackathon will be perfectly equitable. 
+It is thus crucially important that organizers 1) find out and recognize what went wrong at any given event, and 2) learn from those mistakes for future events.\footnote{for an example, see also https://github.com/MarionBWeinzierl/RS-EDI/blob/main/HackathonEDI.md}. 
+This includes critical questions about recruitment: who was invited and solicited? Of those, who participated? Why did those who did not attend decline attendance? How did those who attend experience the hackathon event? 
+Post-attendance surveys that include demographic questions can capture how experiences might have differed for participants with different backgrounds. 
+
+\subsubsection{Research Proposal}
+Despite a number of works on the topic of equity in the context of hackathons, this space remains underexplored with respect to many axes of diversity and equity, such as ethnicity, culture, socioeconomic background, gender, sexuality and neurodiversity.
+As Falk et al.~\cite{falk2021hackathons} state: 
+``[P]articipants’ contributions towards methodological democracy in the face of epistemological hegemony is currently underexplored and requires further engagement in future HCI [Human Computer Interaction] research utilizing modified hackathons.''
+In other words, what are for instance ways in which participants have tailored and facilitated their own and others' participation according to their specific situation?
+
+The rapid shift towards virtual and hybrid meetings in response to the COVID-19 pandemic opens up both opportunities and challenges with respect to equitable participation in hackathons that should be the focus of future work. 
+In this context, one might ask whether virtual hackathons where participants are anonymous facilitate or hinder equitable participation. 
+In the study of equity at hackathons, a closer collaboration with related fields in sociology and psychology exploring equitable participant selection and team work, diversity in competitive environments and anonymity in other virtual spaces may provide valuable insights and starting points for future research. 
+
+\subsection{Studying hackathons}
+In order to improve how hackathons are generally organized and run, we need to study the hackathon formats and participation. 
+Studying hackathons may be valuable for not only researchers but also for organizers, who seek to evaluate and re-iterate the way they organized a hackathon.
+
+In this section, we address the aspect of siloed research and practice by discussing how we may improve what we observe as a poor methodological fit, i.e. how we may start developing and conducting the methodology for studying hackathons by considering relevant and prior theory and thereby move towards a more mature state of theory.
+A diverse range of multiple methods may help not only generating new knowledge but also advance prior theory and thereby mitigate the risk of repeating known insights related to hackathons, as a consequence of repeating what we observe as very similar studies with little changes which cannot be compared or built on.
+
+\subsubsection{State of the art}
+When diving into the research that has been done on hackathons so far it becomes evident that most works in this area focus on studying the experience of participants using qualitative methods such as post-event interviews and surveys.
+Few studies also report on in-depth observations of teams during an event or focus on studying the projects that teams work on. 
+Those studies focus on various aspects of the participant experience including their satisfaction with the event and the individuals involved in organizing it, their project and their team.
+
+For qualitative research, \textit{program theory} has been discussed as a valuable concept for studying the relation between hackathon format and outcome~\cite{falk202010}, one example in this context is the work presented in~\cite{falk2021hackathons}
+There are also works which utilize quantitative methods to e.g. investigated the usage of software repositories~\cite{mcintosh2021hackathon,nolte2020happens,mahmoud2022one}. 
+Other researchers have also included social network analysis~\cite{gabrilove20193144}. 
+Methods such as sensor based analytics and tools like smart badges which could foster the investigation of hackathons at a large scale and which have been successfully used in an educational context have not been utilized to study hackathons extensively yet~\cite{ouhaichi2021mbox}, with only very few exceptions like~\cite{lederman2015hacking}. 
+
+We interpret this large variety of aspects that are being studied as pointing towards a lack of an agreed understanding about what is worth studying and what can be studied in the research community. 
+Related to this, there is also a lack of “standardization” regarding the instruments that are used to study hackathons, which can further complicate e.g. replicability of studies.  
+Most studies utilize instruments that are specifically developed to study one event or one aspect about an event.
+
+In our experience, organizers also rarely focus on "studying" their event when planning it, with a few exceptions such as in~\cite{pe2019hackathons}. 
+Instead they often mainly focus on event logistics and funding.
+Often they will do what they have seen before, e.g. through attending a hackathon themselves, or what others suggest who have done it before. 
+Some hackathons are also "inherited", i.e. passed on from organizer to organizer, so the "senior" will pass down their knowledge to the "junior". 
+Having said that, there is also usually some development happening, i.e., small changes are made if something did not work, an exciting new tool just came up, or someone has seen something somewhere which worked well~\cite{powell2021organizing}.
+
+\subsubsection{Research proposal}
+Moving towards mature theory generally benefits ``from a mix of quantitative and qualitative data''~\cite{edmondson2007methodological}.
+Based on discussions from the Lorentz Center workshop, we provide an overview of several possible qualitative and quantitative methods which readers can consider in table 1.
+%\ref{tab:methods}. 
+The overview should be seen as a developing repertoire of methods which we may use to study hackathons, and we invite readers to partake in discussing and developing methods for how we may study hackathons.
+
+\begin{table*}[t]
+%\resizebox{\paperwidth}{!}{%
+\begin{tabular}{llllllll}
+\hline
+\multicolumn{1}{c}{\textbf{Methods category}} &
+  \multicolumn{1}{c}{\textbf{Methods}} &
+  \multicolumn{3}{c}{\textbf{Hackathon stage}} &
+  \multicolumn{2}{c}{\textbf{Perspective studied}} &
+  \multicolumn{1}{c}{\textbf{References}} \\ \hline
+\multicolumn{1}{r}{\textit{Qualitative}} &
+  \multicolumn{1}{l|}{} &
+  \multicolumn{1}{c}{\textit{Before}} &
+  \multicolumn{1}{c}{\textit{During}} &
+  \multicolumn{1}{c|}{\textit{After}} &
+  \multicolumn{1}{c}{\textit{Participants}} &
+  \multicolumn{1}{c|}{\textit{Organizers}} &
+   \\
+ &
+  \multicolumn{1}{l|}{Interviews (Contextual, structured, semi-structured etc.)} &
+  x &
+  x &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{kvale2012doing,beyer1999contextual} \\
+ &
+  \multicolumn{1}{l|}{Observations} &
+   &
+  x &
+  \multicolumn{1}{l|}{} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{blomberg2017ethnographic} \\
+ &
+  \multicolumn{1}{l|}{Analysis (e.g. thematic)} &
+   &
+   &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{braun2012thematic} \\
+\multicolumn{1}{r}{\textit{Quantitative}} &
+  \multicolumn{1}{l|}{} &
+   &
+   &
+  \multicolumn{1}{l|}{} &
+   &
+  \multicolumn{1}{l|}{} &
+   \\
+ &
+  \multicolumn{1}{l|}{Output (Code, product, prototype etc)} &
+   &
+   &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{} &
+  \cite{nolte2020happens,imam2021secret} \\
+ &
+  \multicolumn{1}{l|}{RFID badges (sensor based technologies)} &
+   &
+  x &
+  \multicolumn{1}{l|}{} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{pentland2008honest, lederman2017open} \\
+ &
+  \multicolumn{1}{l|}{Surveys (incl. demographics of returning participants)} &
+  x &
+  x &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{rea2014designing} \\
+ &
+  \multicolumn{1}{l|}{Audio/video recordings of discussions} &
+   &
+  x &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{olesen2018four} \\
+ &
+  \multicolumn{1}{l|}{Experience sampling method} &
+   &
+  x &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{larson2014experience} \\
+ &
+  \multicolumn{1}{l|}{Social media content and online chats} &
+  x &
+  x &
+  \multicolumn{1}{l|}{x} &
+  x &
+  \multicolumn{1}{l|}{x} &
+  \cite{bontcheva2016extracting} \\ \hline
+\end{tabular}%
+%}
+
+\caption{A synthesis of proposed methods for studying hackathons, compiled by the workshop participants. The provided references are a mix of literature that describe a method in a general context and literature that have applied the related method in the context of hackathons.}
+\label{tab:methods}
+\end{table*}
+
+Topics which could serve as the focus for future studies of hackathons are for example: How to support participants' creativity --- individually or collaboratively --- through e.g. tools, materials, or physical venue surroundings; the role of temporality on participation, design decision-making, design thinking including how different kinds of bias may be introduced, enhanced or mitigated.
+Furthermore, studies of hackathons often focus on the perspective of the participants; we argue that the perspective of organizers is just as important and is often overlooked. 
+
+As a start to avoid replication of mistakes, data from hackathon research could be shared using, for example, the FAIR (Findability, Accessibility, Interoperability, and Reusability) Data Principles, which can be used by researchers to ``enhance the reusability of their data holdings.''~\cite{wilkinson2016fair}.
+
+In addition to these suggested methods, topics and data sharing for studying hackathons, we call for the development of shared survey instruments, used by as many organizers and participants as possible.
+Generally, the aim with such shared survey instruments is to ``ensure that observed differences are in fact real differences and not an artefact of differences in the way the data were collected''~\cite{collins2003pretesting}.
+Additionally, developing such instruments require interdisciplinary collaboration, in order to explore topics which is ``universally'' interesting for all fields (e.g. making hackathons equitable) but may be expressed in very different ways in different fields and contexts. 
+
+As a point of departure for organizers for such an instrument, we suggest the following: 
+For hackathon organizers who wish to study hackathons with the purpose of improving their practice, we may be inspired by a methodology described by Frick and Reigeluth as \textit{formative research}, i.e. a research methodology intended to improve theory for ``designing instructional practices or processes''~\cite{frick1999formative}.
+How do organizers decide to organize their hackathons and how do they tailor the format to support participation of specific groups of maybe non-technical or even vulnerable people? 
+The major concern for evaluating a certain practice is \textit{preferability} --- e.g. how a hackathon practice is better than other practices --- and consists of at least three dimensions which may be valued differently depending on the situation~\cite{frick1999formative}: 
+1) \textit{Effectiveness}: How well did the practice attain the goal in the given situation?
+2) \textit{Efficiency}: How effective is the practice in relation to the cost (e.g. time, money, energy)? 
+3) \textit{Appeal}: How enjoyable is the practice for everyone involved?
+
+\subsection{Hackathon goals and how to reach them}
+Organizing a hackathon takes a lot of time and resources in particular on the part of the organizers. 
+They thus commonly organize an event with the aim to reach specific goals as discussed before. 
+Some goals can directly be achieved at an event while others might require preparation and / or follow-up activity. 
+For the purpose of discussing this difference we will utilize the differentiation proposed by Falk et al.~\cite{falk2021hackathons}, using program theory as described by Hansen and colleagues ~\cite{hansen2019participatory}. 
+Program theory describe how goals can relate to \textit{immediate outputs} such as artifacts that are created during hackathon events~\cite{pe2019understanding}, \textit{short or mid-term outcomes} such as a startup that is created after an event~\cite{cobham2017appfest} or \textit{long term impacts} such as establishing or growing a community~\cite{disalvo2014building}. 
+Often, hackathons focus on multiple goals at the same time such as fostering the development of innovative technology that can then later be turned into products~\cite{leemet2021utilizing,nolte2018you} or fostering the integration of individuals into a community while teaching them related skills~\cite{nolte2020support,cameron2016brainhack}.
+
+We should also note that it is not only organizers that put time and resources into preparing for and running an event. 
+Other individuals such as participants, mentors, jurors, support staff or external stakeholders such as sponsors and supporters equally put time and effort into a hackathon. 
+These individuals however might have very different goals than the organizers of an event. 
+Their goals might then be compatible or aligned to the goals of other individuals that are involved in a hackathon or they might not~\cite{medina2019does}. 
+Individuals might also have goals that are contradicting to goals of others who are involved in the same event. 
+It might thus very well be that some individuals might reach their goals while others might not, even if they are involved in the same hackathon.
+
+\subsubsection{State of the art}
+Most current research and practice on hackathons focuses on \textit{immediate outputs}. 
+These can be varied and include allowing participation~\cite{taylor2018everybody}, raising awareness about specific issues~\cite{hope2019hackathons}, sharing information or teaching specific subjects and practices~\cite{huppenkothen2018hack,cameron2016brainhack} or creating an artifact such as a piece of (innovative) technology~\cite{nolte2018you}. 
+Works in this regard mainly report on how the design of an event can afford and affect immediate outputs. 
+This includes the time that is allocated for a hackathon and the space it takes place in~\cite{trainer2016hackathon}, who is invited~\cite{cobham2017appfest}, how the design processes are supported~\cite{gama2022developers,olesen2018four} and others. 
+Most work related to immediate outputs, however, relies on the perception of participants~\cite{nolte2020support} or on the perception of researchers that observing an event~\cite{pe2019understanding}. 
+Whether and what participants actually learned during an event or the quality of the artifacts that they created during an event has not been extensively studied.
+
+There are also works that discuss \textit{short or mid-term outcomes}. 
+These mainly focus on hackathon projects~\cite{mcintosh2021hackathon,nolte2020happens}. 
+Existing works report that few projects get continued at all~\cite{nolte2020happens,carruthers2014open} and that continuation is often left to individual participants who might or might not be in the position to carry a project forward~\cite{leemet2021utilizing,nolte2018you}. 
+Prior work also reports on the difference between continuation intentions and continuation activity. 
+Despite positive continuation intentions, projects are often abandoned~\cite{carruthers2014open}, only continued in the short term~\cite{nolte2020happens} or handed over to others after an event~\cite{pe2022corporate,nolte2018you}. 
+There are few works that focus on short or mid-term outcomes other than projects. 
+These include individual career gains~\cite{pe2022corporate,nolte2018you} and learning~\cite{porras2018hackathons}.
+
+Few works also discuss \textit{long term impacts}. 
+Existing works in this area mainly focus on hackathon projects as well especially in relation to open source. 
+They report that long term project continuation is predicated by aspects such as skill diversity within a team and the intention of team members to expand the reach of their project~\cite{nolte2020happens}. 
+Moreover, there are studies on the reuse of code that was created during an event. 
+Findings from these studies indicate that about one third of such code gets reused in other open source projects and that the number of hackathon team members increase reuse probability~\cite{mahmoud2022one}. 
+Other long term impacts such as community integration and addressing larger issues such as environmental and public health issues have not been extensively studied.
+
+Finally there are few studies focusing on the alignment of goals between organizers and participants. 
+They report that organizers and participants might not share the same goals and provide indication that the hackathon format itself might afford reaching certain goals such as networking and learning~\cite{medina2019does}.
+The goals of other individuals involved in a hackathon such as mentors, jurors, support staff or external stakeholders such as sponsors and supporters have not been studied extensively so far.
+
+\subsubsection{Research proposal}
+Regarding existing work related to fostering specific goals through hackathons there are a few areas that future research could address. 
+First there is a necessity to expand studies beyond immediate outputs and focus on short or mid-term as well as long term impacts. 
+Moreover future work could focus on developing instruments that help assess actual impact rather than relying on the perception of individuals.
+
+Another area that requires attention is studying the goals of individuals that are involved in preparing for and running hackathons. 
+This relates to goal alignment as well as to include goals beyond those of organizers and participants.
+
+Finally there is a lack of studies that consider hackathons in their context. 
+Events are often studied out of context and organized as one-off events which are only marginally connected to other activities that e.g. a community or corporation undertakes. 
+To advance the format and unlock its full potential it is necessary to consider hackathons in their larger context both when organizing and studying them.
+
+\section{Conclusion}
+\label{NextSteps}
+In order to facilitate more interdisciplinary sharing of best practices and collaboration on hackathon research, we need to create \textit{awareness} that both research and practice is siloed.
+Creating awareness is the purpose of this paper and we do this first and foremost by targeting a broad audience.
+We presented our best practices based on our combined experiences with organizing hackathons and discuss six important areas for the future of hackathon research and practice: (1) Hackathons for different purposes, (2) Socio-technical event design, (3) Scaling up, (4) Making hackathons equitable, (5) Studying hackathons, and (6) Hackathon goals and how to reach them. 
+How can we then start sharing best practices and establish interdisciplinary research collaborations and thereby start to address grander challenges which requires interdisciplinary approaches?
+A first step towards this, was the Lorentz workshop that initiated this very paper, where several researchers and organizers from multiple disciplines started the conversation.
+With this paper, we both call for more interdisciplinary collaboration to address the three challenges identified in the \textit{Introduction} section and we envision that the paper can serve as a point of departure for these collaborations.
+Especially the sections \textit{Hackathons in context} and \textit{Envisioning the future of hackathon research and practice} should serve as a solid foundation for guiding the maturing of future hackathon research and practice.
+Our next concrete step towards breaking down the silos, is to establish and nurture an interdisciplinary community around hackathons by organizing workshops --- open to both researchers and organizers --- around hackathon research and practice.
+
+
+\section*{Acknowledgment}
+We thank The Lorentz Center in Leiden, The Alfred P. Sloan Foundation, and the participants of the Hack the Hackathon: Shaping the Future of Hackathon Research and Practice workshop:
+Abasi-Amefon Affia, 
+Megan Bedell,
+Amy Cannon,
+Daniel Foreman-Mackey, 
+Morgan Fouesneau, 
+Remi Gau, 
+Daniela Gawehns, 
+Kevin Gott, 
+Joseph Gum, 
+Linda Hayden, 
+Henriette Jensenius, 
+Amruta Jaodand,
+Meris Longmeier, 
+Je’aime Powell,
+Emilio Mayorga,
+François Michonneau,
+Audris Mockus, 
+Lavinia Paganini,
+Adrian Price-Whelan, 
+Karla Peña Ramírez, 
+Brigitta Sipőcz, 
+Sarah Stone,
+Myrthe Vel Tromp and Liz Vu.
+
+
+\begin{thebibliography}{10}
+
+\bibitem{huppenkothen2018hack}
+D.~Huppenkothen, {\it et~al.\/}, Hack weeks as a model for data science
+  education and collaboration, {\it Proceedings of the National Academy of
+  Sciences\/} {\bf 115}, 8872 (2018).
+
+\bibitem{lewis2015ux}
+B.~A. Lewis, J.~Parker, L.~W. Cheng, M.~Resnick, Ux day design challenge:
+  hackathon to apply rapid design ideation to a practical user experience
+  challenge, {\it Proceedings of the Human Factors and Ergonomics Society
+  Annual Meeting\/} (2015), vol.~59, pp. 304--306.
+
+\bibitem{cobham2017appfest}
+D.~Cobham, {\it et~al.\/}, From appfest to entrepreneurs: using a hackathon
+  event to seed a university student-led enterprise, {\it .\/}  (2017).
+
+\bibitem{briscoe2014digital}
+G.~Briscoe, Digital innovation: The hackathon phenomenon, {\it Creativeworks
+  London\/} {\bf 6}, 1 (2014).
+
+\bibitem{trinaistic2020hackathons}
+E.~Trinaistic, Hackathons as instruments for settlement sector innovation, {\it
+  The International Journal of Information, Diversity, \& Inclusion\/} {\bf 4},
+  123 (2020).
+
+\bibitem{wang2018extended}
+J.~K. Wang, R.~D. Pamnani, R.~Capasso, R.~T. Chang, An extended hackathon model
+  for collaborative education in medical innovation, {\it Journal of medical
+  systems\/} {\bf 42}, 1 (2018).
+
+\bibitem{taylor2018everybody}
+N.~Taylor, L.~Clarke, Everybody’s hacking: Participation and the
+  mainstreaming of hackathons, {\it CHI 2018\/} (2018), pp. 1--2.
+
+\bibitem{longmeier2021hackathons}
+M.~M. Longmeier, Hackathons and libraries: The evolving landscape 2014-2020,
+  {\it Information Technology and Libraries\/} {\bf 40} (2022).
+
+\bibitem{falk202010}
+J.~Falk~Olesen, K.~Halskov, 10 years of research with and on hackathons, {\it
+  Proceedings of the 2020 ACM designing interactive systems conference\/}
+  (2020), pp. 1073--1088.
+
+\bibitem{falk2021hackathons}
+J.~Falk, G.~Kannabiran, N.~B. Hansen, What do hackathons do? understanding
+  participation in hackathons through program theory analysis, {\it Proceedings
+  of the 2021 CHI Conference on Human Factors in Computing Systems\/} (2021),
+  pp. 1--16.
+
+\bibitem{paganini2020}
+L.~Paganini, K.~Gama, Engaging women’s participation in hackathons: A
+  qualitative study with participants of a female-focused hackathon, {\it
+  International Conference on Game Jams, Hackathons and Game Creation Events
+  2020\/} (2020), pp. 8--15.
+
+\bibitem{edmondson2007methodological}
+A.~C. Edmondson, S.~E. McManus, Methodological fit in management field
+  research, {\it Academy of management review\/} {\bf 32}, 1246 (2007).
+
+\bibitem{miller2008epistemological}
+T.~R. Miller, {\it et~al.\/}, Epistemological pluralism: reorganizing
+  interdisciplinary research, {\it Ecology and Society\/} {\bf 13} (2008).
+
+\bibitem{eigenbrode2007employing}
+S.~D. Eigenbrode, {\it et~al.\/}, Employing philosophical dialogue in
+  collaborative science, {\it BioScience\/} {\bf 57}, 55 (2007).
+
+\bibitem{flus2021design}
+M.~Flus, A.~Hurst, Design at hackathons: new opportunities for design research,
+  {\it Design Science\/} {\bf 7} (2021).
+
+\bibitem{kollwitz2019hack}
+C.~Kollwitz, B.~Dinter, What the hack?--towards a taxonomy of hackathons, {\it
+  International Conference on Business Process Management\/} (2019), pp.
+  354--369.
+
+\bibitem{rys2021invention}
+M.~Rys, Invention development. the hackathon method, {\it Knowledge Management
+  Research \& Practice\/} pp. 1--13 (2021).
+
+\bibitem{pe2019designing}
+E.~P.~P. Pe-Than, {\it et~al.\/}, Designing corporate hackathons with a
+  purpose: The future of software development, {\it IEEE Software\/} {\bf 36},
+  15 (2019).
+
+\bibitem{nolte2020organize}
+A.~Nolte, {\it et~al.\/}, How to organize a hackathon--a planning kit, {\it
+  arXiv preprint arXiv:2008.08025\/}  (2020).
+
+\bibitem{trainer2016hackathon}
+E.~H. Trainer, A.~Kalyanasundaram, C.~Chaihirunkarn, J.~D. Herbsleb, How to
+  hackathon: Socio-technical tradeoffs in brief, intensive collocation, {\it
+  proceedings of the 19th ACM conference on computer-supported cooperative work
+  \& social computing\/} (2016), pp. 1118--1130.
+
+\bibitem{edmondson2012teaming}
+A.~C. Edmondson, {\it Teaming: How organizations learn, innovate, and compete
+  in the knowledge economy\/} (John Wiley \& Sons, 2012).
+
+\bibitem{falk2022supporting}
+J.~Falk, F.~Young, Supporting fast design: The potential of hackathons for
+  co-creative systems, {\it C\&C '22: Creativity and Cognition\/} (Association
+  for Computing Machinery, 2022), p. 515–519.
+
+\bibitem{pe2019understanding}
+E.~P.~P. Pe-Than, J.~D. Herbsleb, Understanding hackathons for science:
+  Collaboration, affordances, and outcomes, {\it International Conference on
+  Information\/} (2019), pp. 27--37.
+
+\bibitem{nolte2018you}
+A.~Nolte, {\it et~al.\/}, You hacked and now what? -exploring outcomes of a
+  corporate hackathon, {\it Proceedings of the ACM on Human-Computer
+  Interaction\/} {\bf 2}, 1 (2018).
+
+\bibitem{olesen2018four}
+J.~F. Olesen, N.~B. Hansen, K.~Halskov, Four factors informing design judgement
+  at a hackathon, {\it Australian Conference on Computer-Human Interaction\/}
+  (2018), pp. 473--483.
+
+\bibitem{jefferson2017comment}
+R.~Jefferson, Comment: Turning science into social outcomes, {\it Nature\/}
+  {\bf 548}, S8 (2017).
+
+\bibitem{RN310}
+J.~A. Moral-Munoz, A.~G. López-Herrera, E.~Herrera-Viedma, M.~J. Cobo, Science
+  mapping analysis software tools: A review, {\it Springer Handbook of Science
+  and Technology Indicators\/} (Springer handbook of science and technology
+  indicators, 2019), pp. 159--185.
+
+\bibitem{van2010software}
+N.~Van~Eck, L.~Waltman, Software survey: Vosviewer, a computer program for
+  bibliometric mapping, {\it scientometrics\/} {\bf 84}, 523 (2010).
+
+\bibitem{UW}
+U.~of~Washington, University of washington active learning classroom. Available
+  at \url{https://www.washington.edu/classroom/OUG+136}, accessed: November
+  2022.
+
+\bibitem{huppenkothen2020entrofy}
+D.~Huppenkothen, B.~McFee, L.~Nor{\'e}n, Entrofy your cohort: A transparent
+  method for diverse cohort selection, {\it Plos one\/} {\bf 15}, e0231939
+  (2020).
+
+\bibitem{gama2022}
+K.~Gama, {\it et~al.\/}, The developers’ design thinking toolbox in
+  hackathons: A study on the recurring design methods in software development
+  marathons, {\it International Journal of Human--Computer Interaction\/} pp.
+  1--23 (2022).
+
+\bibitem{pe2022corporate}
+E.~P.~P. Pe-Than, {\it et~al.\/}, Corporate hackathons, how and why? a multiple
+  case study of motivation, projects proposal and selection, goal setting,
+  coordination, and outcomes, {\it Human--Computer Interaction\/} {\bf 37}, 281
+  (2022).
+
+\bibitem{flores2018can}
+M.~Flores, {\it et~al.\/}, How can hackathons accelerate corporate innovation?,
+  {\it IFIP Advances in Information and Communication Technology\/} (Springer
+  International Publishing, 2018), pp. 167--175.
+
+\bibitem{granados2019collaborative}
+C.~Granados, M.~Pareja-Eastaway, How do collaborative practices contribute to
+  innovation in large organisations? the case of hackathons, {\it Innovation\/}
+  {\bf 21}, 487 (2019).
+
+\bibitem{nandi2016}
+A.~Nandi, M.~Mandernach, Hackathons as an informal learning platform, {\it
+  Proceedings of the 47th ACM Technical Symposium on Computing Science
+  Education\/} (2016).
+
+\bibitem{gama2018hackathons}
+K.~Gama, B.~Alencar~Gonçalves, P.~Alessio, Hackathons in the formal learning
+  process, {\it Proceedings of the 23rd Annual ACM Conference on Innovation and
+  Technology in Computer Science Education\/} (ACM, 2018).
+
+\bibitem{porras2018hackathons}
+J.~Porras, {\it et~al.\/}, Hackathons in software engineering education:
+  lessons learned from a decade of events, {\it Proceedings of the 2nd
+  international workshop on software engineering education for Millennials\/}
+  (2018), pp. 40--47.
+
+\bibitem{disalvo2014building}
+C.~DiSalvo, M.~Gregg, T.~Lodato, Building belonging, {\it interactions\/} {\bf
+  21}, 58 (2014).
+
+\bibitem{safarov2017}
+I.~Safarov, A.~Meijer, S.~Grimmelikhuijsen, Utilization of open government
+  data: A systematic literature review of types, conditions, effects and users,
+  {\it Information Polity\/} {\bf 22}, 1 (2017).
+
+\bibitem{ghouila2018hackathons}
+A.~Ghouila, {\it et~al.\/}, Hackathons as a means of accelerating scientific
+  discoveries and knowledge transfer, {\it Genome research\/} {\bf 28}, 759
+  (2018).
+
+\bibitem{groen2015science}
+D.~Groen, B.~Calderhead, Science hackathons for developing interdisciplinary
+  research and collaborations. elife, {\it URL: https://www. ncbi. nlm. nih.
+  gov/pmc/articles/PMC4511834\/}  (2015).
+
+\bibitem{mendes2022socio}
+W.~Mendes, {\it et~al.\/}, Socio-technical constraints and affordances of
+  virtual collaboration - a study of four online hackathons, {\it Proc. ACM
+  Hum.-Comput. Interact.\/} {\bf 6} (2022).
+
+\bibitem{bertello2022open}
+A.~Bertello, M.~L. Bogers, P.~De~Bernardi, Open innovation in the face of the
+  covid-19 grand challenge: insights from the pan-european hackathon
+  ‘euvsvirus’, {\it R\&D Management\/} {\bf 52}, 178 (2022).
+
+\bibitem{temiz2020open}
+S.~Temiz, D.~G. Broo, Open innovation initiatives to tackle covid-19 crises:
+  Imposter open innovation and openness in data, {\it IEEE Engineering
+  Management Review\/} {\bf 48}, 46 (2020).
+
+\bibitem{burtscher2020}
+L.~{Burtscher}, {\it et~al.\/}, {The carbon footprint of large astronomy
+  meetings}, {\it Nature Astronomy\/} {\bf 4}, 823 (2020).
+
+\bibitem{braune2021interdisciplinary}
+K.~Braune, {\it et~al.\/}, Interdisciplinary online hackathons as an approach
+  to combat the covid-19 pandemic: case study, {\it Journal of medical Internet
+  research\/} {\bf 23} (2021).
+
+\bibitem{fowler2020jamming}
+A.~Fowler, J.~Pirker, A.~Arya, Jamming across borders: An exploratory study,
+  {\it International Conference on Game Jams, Hackathons and Game Creation
+  Events 2020\/} (2020), pp. 16--21.
+
+\bibitem{mcintosh2021hackathon}
+L.~McIntosh, C.~D. Hardin, Do hackathon projects change the world? an empirical
+  analysis of github repositories, {\it Proceedings of the 52nd ACM Technical
+  Symposium on Computer Science Education\/} (2021), pp. 879--885.
+
+\bibitem{mahmoud2022one}
+A.~S.~I. Mahmoud, T.~Dey, A.~Nolte, A.~Mockus, J.~D. Herbsleb, One-off events?
+  an empirical study of hackathon code creation and reuse, {\it Empirical
+  Software Engineering\/} {\bf 27}, 1 (2022).
+
+\bibitem{schultenparticipants}
+C.~Schulten, A.~Nolte, D.~Spikol, I.-A. Chounta, How do participants
+  collaborate during an online hackathon? an empirical, quantitative study of
+  communication traces, {\it Frontiers in Computer Science\/} {\bf 4} (2022).
+
+\bibitem{happonen2021systematic}
+A.~Happonen, M.~Tikka, U.~A. Usmani, A systematic review for organizing
+  hackathons and code camps in covid-19 like times: Literature in demand to
+  understand online hackathons and event result continuation, {\it Conference
+  on Data and Software Engineering\/} (2021), pp. 1--6.
+
+\bibitem{ferrario2014software}
+M.~A. Ferrario, W.~Simm, P.~Newman, S.~Forshaw, J.~Whittle, Software
+  engineering for'social good': integrating action research, participatory
+  design, and agile development, {\it Companion Proceedings of the 36th
+  International Conference on Software Engineering\/} (2014), pp. 520--523.
+
+\bibitem{cameron2016brainhack}
+R.~Cameron~Craddock, {\it et~al.\/}, Brainhack: a collaborative workshop for
+  the open neuroscience community, {\it GigaScience\/} {\bf 5}, s13742 (2016).
+
+\bibitem{vermicelli2020can}
+S.~Vermicelli, L.~Cricelli, M.~Grimaldi, How can crowdsourcing help tackle the
+  covid-19 pandemic? an explorative overview of innovative collaborative
+  practices, {\it R\&D Management\/}  (2020).
+
+\bibitem{boden2004creative}
+M.~A. Boden, {\it The creative mind: Myths and mechanisms\/} (Routledge, 2004).
+
+\bibitem{basden2021performancews}
+A.~Basden, M.~Weinzierl, T.~Weinzierl, B.~J.~N. Wylie, {A novel performance
+  analysis workshop series concept, developed at Durham University under the
+  umbrella of the ExCALIBUR programme} (2021).
+
+\bibitem{falk2022shortening}
+J.~Falk, C.~Frauenberger, G.~Kannabiran, How shortening or lengthening design
+  processes configure decision making, {\it Proceedings of the 12th Nordic
+  Conference on Human-Computer Interaction\/}, NordiCHI '22 (2022), p.~11.
+
+\bibitem{grzymala2011time}
+A.~Grzymala-Busse, Time will tell? temporality and the analysis of causal
+  mechanisms and processes, {\it Comparative Political Studies\/} {\bf 44},
+  1267 (2011).
+
+\bibitem{kopec2018older}
+W.~Kope{\'c}, {\it et~al.\/}, Older adults and hackathons: a qualitative study,
+  {\it Empirical Software Engineering\/} {\bf 23}, 1895 (2018).
+
+\bibitem{kos2018collegiate}
+B.~A. Kos, The collegiate hackathon experience, {\it Proceedings of the 2018
+  ACM Conference on International Computing Education Research\/} (2018), pp.
+  274--275.
+
+\bibitem{decker2015understanding}
+A.~Decker, K.~Eiselt, K.~Voll, Understanding and improving the culture of
+  hackathons: Think global hack local, {\it 2015 IEEE Frontiers in Education
+  Conference (FIE)\/} (2015), pp. 1--8.
+
+\bibitem{kumar2019}
+D.~Kumar, Lab culture versus hackathons, {\it ACM Inroads\/} {\bf 10}, 16–18
+  (2019).
+
+\bibitem{warner2017}
+J.~Warner, P.~J. Guo, Hack. edu: Examining how college hackathons are perceived
+  by student attendees and non-attendees, {\it ICER\/} (2017), pp. 254--262.
+
+\bibitem{d2016towards}
+C.~D’Ignazio, {\it et~al.\/}, Towards a feminist hackathon: The ‘make the
+  breast pump not suck!’hackathon, {\it The Journal of Peer Production\/}
+  {\bf 8} (2016).
+
+\bibitem{ferraz2019case}
+C.~Ferraz, K.~Gama, A case study about gender issues in a game jam, {\it
+  Proceedings of the International Conference on Game Jams, Hackathons and Game
+  Creation Events 2019\/} (2019), pp. 1--8.
+
+\bibitem{prado2021trans}
+R.~Prado, W.~Mendes, K.~S. Gama, G.~Pinto, How trans-inclusive are hackathons?,
+  {\it IEEE Software\/} {\bf 38}, 26 (2021).
+
+\bibitem{kanstrup2018participatory}
+A.~M. Kanstrup, P.~Bertelsen, Participatory rhythms: balancing participatory
+  tempi and investments in design with vulnerable users, {\it Proceedings of
+  the 15th Participatory Design Conference: Short Papers, Situated Actions,
+  Workshops and Tutorial-Volume 2\/} (2018), pp. 1--5.
+
+\bibitem{kos2019understanding}
+B.~A. Kos, Understanding female-focused hackathon participants' collaboration
+  styles and event goals, {\it Proceedings of the International Conference on
+  Game Jams, Hackathons and Game Creation Events 2019\/} (2019), pp. 1--4.
+
+\bibitem{paganini2021promoting}
+L.~Paganini, C.~Ferraz, K.~Gama, C.~Alves, Promoting game jams and hackathons
+  as more women-inclusive environments for informal learning, {\it 2021 IEEE
+  Frontiers in Education Conference (FIE)\/} (2021), pp. 1--9.
+
+\bibitem{nolte2020happens}
+A.~Nolte, I.-A. Chounta, J.~D. Herbsleb, What happens to all these hackathon
+  projects? identifying factors to promote hackathon project continuation, {\it
+  Proceedings of the ACM on Human-Computer Interaction\/} {\bf 4}, 1 (2020).
+
+\bibitem{gabrilove20193144}
+J.~L. Gabrilove, L.~Fattah, F.~Bradley, 3144 exploring communication and
+  collaboration at the mount sinai health hackathon: a social network analysis,
+  {\it Journal of Clinical and Translational Science\/} {\bf 3}, 71 (2019).
+
+\bibitem{ouhaichi2021mbox}
+H.~Ouhaichi, D.~Spikol, B.~Vogel, Mbox: Designing a flexible iot multimodal
+  learning analytics system, {\it 2021 International Conference on Advanced
+  Learning Technologies (ICALT)\/} (2021), pp. 122--126.
+
+\bibitem{lederman2015hacking}
+O.~Lederman, {\it et~al.\/}, Hacking innovation-group dynamics in innovation
+  teams, Ph.D. thesis, Massachusetts Institute of Technology (2015).
+
+\bibitem{pe2019hackathons}
+E.~P.~P. Pe-Than, I.~Momcheva, E.~Tollerud, J.~D. Herbsleb, Hackathons for
+  science, how and why?, {\it American Astronomical Society Meeting Abstracts\#
+  233\/} (2019), vol. 233, pp. 459--11.
+
+\bibitem{powell2021organizing}
+J.~Powell, L.~Bailey~Hayden, A.~Cannon, B.~Wilson, A.~Nolte, Organizing online
+  hackathons for newcomers to a scientific community--lessons learned from two
+  events, {\it International Conference on Game Jams, Hackathons, and Game
+  Creation Events\/} (2021), pp. 78--82.
+
+\bibitem{kvale2012doing}
+S.~Kvale, {\it Doing interviews\/} (Sage, 2012).
+
+\bibitem{beyer1999contextual}
+H.~Beyer, K.~Holtzblatt, Contextual design, {\it interactions\/} {\bf 6}, 32
+  (1999).
+
+\bibitem{blomberg2017ethnographic}
+J.~Blomberg, J.~Giacomi, A.~Mosher, P.~Swenton-Wall, Ethnographic field methods
+  and their relation to design, {\it Participatory design\/} (CRC Press, 2017),
+  pp. 123--155.
+
+\bibitem{braun2012thematic}
+V.~Braun, V.~Clarke, {\it Thematic analysis.\/} (American Psychological
+  Association, 2012).
+
+\bibitem{imam2021secret}
+A.~Imam, T.~Dey, A.~Nolte, A.~Mockus, J.~D. Herbsleb, The secret life of
+  hackathon code where does it come from and where does it go?, {\it 2021
+  IEEE/ACM 18th International Conference on Mining Software Repositories
+  (MSR)\/} (2021), pp. 68--79.
+
+\bibitem{pentland2008honest}
+A.~Pentland, T.~Heibeck, Honest signals, {\it MIT press\/}  (2008).
+
+\bibitem{lederman2017open}
+O.~Lederman, {\it et~al.\/}, Open badges: A low-cost toolkit for measuring team
+  communication and dynamics, {\it arXiv preprint\/}  (2017).
+
+\bibitem{rea2014designing}
+L.~M. Rea, R.~A. Parker, {\it Designing and conducting survey research: A
+  comprehensive guide\/} (John Wiley \& Sons, 2014).
+
+\bibitem{larson2014experience}
+R.~Larson, M.~Csikszentmihalyi, The experience sampling method, {\it Flow and
+  the foundations of positive psychology\/} (Springer, 2014), pp. 21--34.
+
+\bibitem{bontcheva2016extracting}
+K.~Bontcheva, L.~Derczynski, Extracting information from social media with
+  gate, {\it Working with Text\/} (Chandos Publishing, 2016), pp. 133--158.
+
+\bibitem{wilkinson2016fair}
+M.~D. Wilkinson, {\it et~al.\/}, The fair guiding principles for scientific
+  data management and stewardship, {\it Scientific data\/} {\bf 3}, 1 (2016).
+
+\bibitem{collins2003pretesting}
+D.~Collins, Pretesting survey instruments: an overview of cognitive methods,
+  {\it Quality of life research\/} {\bf 12}, 229 (2003).
+
+\bibitem{frick1999formative}
+T.~Frick, C.~Reigeluth, Formative research: A methodology for creating and
+  improving design theories, {\it Instructional-design theories and models: A
+  new paradigm of instructional theory\/} {\bf 2}, 633 (1999).
+
+\bibitem{hansen2019participatory}
+N.~B. Hansen, {\it et~al.\/}, How participatory design works: mechanisms and
+  effects, {\it Australian Conference on Human-Computer-Interaction\/} (2019),
+  pp. 30--41.
+
+\bibitem{leemet2021utilizing}
+A.~Leemet, F.~Milani, A.~Nolte, Utilizing hackathons to foster sustainable
+  product innovation-the case of a corporate hackathon series, {\it 2021
+  IEEE/ACM 13th International Workshop on Cooperative and Human Aspects of
+  Software Engineering (CHASE)\/} (2021), pp. 51--60.
+
+\bibitem{nolte2020support}
+A.~Nolte, L.~B. Hayden, J.~D. Herbsleb, How to support newcomers in scientific
+  hackathons-an action research study on expert mentoring, {\it Proceedings of
+  the ACM on Human-Computer Interaction\/} {\bf 4}, 1 (2020).
+
+\bibitem{medina2019does}
+M.~A. Medina~Angarita, A.~Nolte, Does it matter why we hack?--exploring the
+  impact of goal alignment in hackathons, {\it Proceedings of 17th European
+  Conference on Computer-Supported Cooperative Work\/} (2019).
+
+\bibitem{hope2019hackathons}
+A.~Hope, {\it et~al.\/}, Hackathons as participatory design: iterating feminist
+  utopias, {\it Proceedings of the 2019 CHI Conference on Human Factors in
+  Computing Systems\/} (2019), pp. 1--14.
+
+\bibitem{gama2022developers}
+K.~Gama, {\it et~al.\/}, The developers’ design thinking toolbox in
+  hackathons: A study on the recurring design methods in software development
+  marathons, {\it International Journal of Human--Computer Interaction\/} pp.
+  1--23 (2022).
+
+\bibitem{carruthers2014open}
+A.~Carruthers, Open data day hackathon 2014 at edmonton public library, {\it
+  Partnership: The Canadian Journal of Library and Information Practice and
+  Research\/} {\bf 9} (2014).
+
+\end{thebibliography}
+
+\begin{IEEEbiography}%
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{jeanette.png}}]
+{Jeanette Falk} is a postdoctoral researcher at the Department of Artificial Intelligence and Human Interfaces at the University of Salzburg, Austria. She received her B.S degree in digital design in 2014, her master's degree in digital design in 2016 and her Ph.D degree in 2021 from Aarhus University, Denmark. 
+
+She has researched accelerated and time-limited formats, such as hackathons and game jams, and how these formats, for example, shape participants’ creativity and design processes. Her recent research focus is how temporality plays a role in design and how we may design tools for supporting fast or slow design thinking, including how AI can be used as a design material as part of these kinds of tools.
+In 2021, she received the best paper award at the ACM CHI Conference on Human Factors in Computing Systems.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{alex.jpg}}]
+{Alexander Nolte} is an Associate Professor at the University of Tartu (Estonia) and an Adjunct Associate Professor at Carnegie Mellon University (Pittsburgh, PA, USA).  He holds a master’s degree in computer science from TU Dortmund University (Germany) and a PhD in information systems from the University of Duisburg-Essen (Germany). His research focuses on understanding and developing means to support collaboration in corporate, entrepreneurial, civic, educational, and scientific settings. He has published more than 100 research papers and articles in top conferences and journals in the fields of human computer interaction, information systems, and software engineering. His research has received multiple awards including an ACM SIGSOFT Distinguished Paper Award. 
+\end{IEEEbiography}
+
+\begin{IEEEbiography}%
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{daniela.jpeg}}]
+{Daniela Huppenkothen} received her BSc from Jacobs University Bremen in Geosciences \& Astrophysics, followed by a MSc and a PhD in Astronomy \& Astrophysics from the University of Amsterdam. She is currently a staff scientist at The Netherlands Institute for Space Research. Her research focuses on the intersection of data science and astronomy, and she is particularly interested in time series analysis, black holes and neutron stars, machine learning for statistical inference, and Bayesian inference. Her secondary interest is in enabling interdisciplinary collaboration and building communities through hackathons and unconferences. 
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{marion.jpg}}]
+{Marion Weinzierl} is a Senior Research Software Engineer in Advanced Research Computing at Durham University, and the RSE Theme Leader of the N8 Centre of Excellence for Computationally Intensive Research (N8 CIR). She has a degree in Media Informatics and a PhD in Scientific Computing. Previously she worked both in academia and in industry in computational physics (in various forms). 
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{kiev.jpg}}]
+{KIEV GAMA} received the B.S. degree in Computer Science from Universidade Católica de Pernambuco, Recife, Brazil, in 2004; the M.S. degree in Computer Science from Université Joseph Fourier (Grenoble I), Grenoble, France, in 2008; and the PhD degree in Computer Science from Université de Grenoble, Grenoble, France, 2011. He is currently an Associate Professor at Universidade Federal de Pernambuco (UFPE), Recife, Brazil.
+
+His main research domain is in the area of Software Engineering. As an organizer of hackathons since 2013, his research interests naturally started to include several aspects of time-bounded collaborative events (e.g., hackathons, game jams) within contexts such as open innovation and education. He has authored over 20 peer-reviewed articles on that topic alone.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{daniel.jpg}}]
+{Daniel Spikol} has been investigating different aspects of Technology-enhanced Learning, where he has researched, designed, and developed systems that engage learners, support teachers, and provide insights into learning. He is an Associate Professor at the University of Copenhagen in the Department of Computer Science and a fellow at the Center for Digital Education. He received his Ph.D. in Computer Science from Linnæus University, Sweden, in 2010. His background combines design, digital art, and computer science to investigate how people learn and play. His current research explores how people collaborate with physical computing to inspire learners to explore computational tinkering and thinking. Over the last decade, he has focused his research on multimodal learning analytics on understanding how small groups of students use mobile phones to conduct science in the field
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{erik.jpg}}]
+{Dr. Erik Tollerud} received his BS in physics from the University of Puget Sound, Tacoma, WA, USA, in 2006.  He received an M.S in 2008 and a PhD in 2012 on astrophysics from the University of California, Irvine, Irvine, CA, USA.
+
+From 2008 to 2012 he was a research assistant at the University of California, Irvine. From 2012 to 2015 he was a Hubble Fellow at Yale University, New Haven, CT, USA . From 2015 to 2017 he was a Giacconi fellow at the Space Telescope Science Institute, Baltimore, MD, USA.  Since 2017 he has been a tenure-track astronomer at the Space Telescope Science Institute. His research areas are dwarf galaxies, near-field cosmology, and open source research software in astronomy.
+
+Dr Tollerud's awards and honors include a Fletcher Jones Fellowship (2011), a Hubble Fellowship (2012), a Giacconi Fellowship (2015), the Royal Astronomical Society Group Award (2020, with The Astropy Project), and the ADASS Software Prize (2022, for The Astropy Project).
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{neil.jpeg}}]
+{Neil P. Chue Hong} is the founding Director of the Software Sustainability Institute and Professor of Research Software Policy and Practice at Edinburgh Parallel Computing Centre, University of Edinburgh, Edinburgh, U.K. He received the M.Phys. degree in computational physics from the University of Edinburgh. His research interests include software sustainability, software engineering practices, communities of practice, research software ecosystems, software as a research object, and impact of research software policy. He is the Editor-in-Chief for the Journal of Open Research Software, Chair of the Exascale Computing ALgorithms \& Infrastructures Benefiting UK Research (ExCALIBUR) Steering Committee, Treasurer of the Research Software Alliance, Past Chair of the EPSRC Strategic Advisory Team on e-Infrastructure, Past Chair of the Software Carpentry Foundation, coeditor of “Software Engineering for Science,” coauthor of “Best Practices for Scientific Computing”, “An Open Science Peer Review Oath” and “FAIR Principles for Research Software,” and advises several research funders on software policy. He is a member of the Association for Computing Machinery, a member of the Society for Research Software Engineering, and a Fellow of the British Computer Society. Contact him at N.ChueHong@epcc.ed.ac.uk.
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{ines.png}}]
+{Ines Knäpper} is highly impact driven and has a deep passion for innovation. She currently works as Innovation and Hackathon Lead at the World Economic Forum for the Global Alliance for Trade Facilitation. There she leads the efforts to foster innovation and collaboration amongst all stakeholders involved in international trade and cross-border movement of goods.
+
+In this role she organises hackathons and innovation events that aims at bridging the gap between long existing bottlenecks in international trade and innovative solutions and technologies.
+
+Ines is a firm believer in the power of technology to drive positive change and is always on the lookout for new and innovative ways to solve complex issues. She is known for her strategic thinking, creative problem-solving skills, and ability to bring people together to achieve a common goal.
+
+Furthermore, Ines is a founding member of THE Port association, organising humanitarian hackathons and innovation events, and acts since 2014 as Executive Director on humanitarian, technology driven innovation projects bridging the gap between humanitarian NGOs and state-of-the-art technology innovators.
+
+Before, Ines worked in the International Relations Sector at CERN as Programme Manager for the High-School Students Internship Programme embedded in the Education, Communication and Outreach group.
+
+She has more than 20 years’ experience in using design thinking methodologies as a tool to solve pertinent challenges for the greater good, innovation consulting, event management, communication \& project management, customer service, business analysis and development. 
+\end{IEEEbiography}
+
+\begin{IEEEbiography}
+[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{linda.png}}]
+{Dr. Linda Bailey Hayden} directs Workforce Development for the NSF Science Gateway Community Institute (SGCI) and for the NSF Cyberinfrastructure Center of Excellence called, “SGX3 - A Center of Excellence to Extend Access, Expand the Community, and Exemplify Good Practices for CI Through Science Gateways,” under NSF award no. 231406. She developed and implemented student Hackathon events for SGCI/SGX3 during the PEARC 2018, 2019 and 2020 conferences and during Supercomputing conferences in 2018- 2022. Dr. Hayden is on the hackhpc.org team that coordinates student registration, travel, challenge problems, mentors and awards. That team includes Je’aime Powell and Charlie Dey both from The Texas Advanced Computing Center (TACC) and Alexander Nolte from the University of Tartu. Omnibond, Inc, represented by Boyd Wilson and Amy Cannon, has supported this hackathon effort since its inception. Also, for SGX3 the team implements a faculty hackathon where faculty leave with "ready-to-go" course outlines, supporting data, and identified HPC resources. Each team is assigned a community mentor who provides use cases for class assignments.
+
+She received the Presidential Award from the National Science Foundation in 2003 for Excellence in Science, Mathematics and Engineering Mentoring (PAESMEM). Dr. Hayden also directed the education and outreach efforts of the NSF Center for Remote Sensing of Ice Sheets. During that time, she orchestrated the participation of hundreds of students in Polar Science Research with 42-63% being women and 66-89% being underrepresented on an annual basis. At Elizabeth City State University in northeastern North Carolina, she is director for the Center of Excellence in Remote Sensing Education and Research (CERSER). 
+\end{IEEEbiography}
+
+\EOD
+
+\end{document}
